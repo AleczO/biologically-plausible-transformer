@@ -4,7 +4,7 @@
 
 A proof-of-concept Linear RNN inspired by *Kozachkov et al. (2023)*. It explores how biological mechanisms, specifically the interplay between fast neurons and slow astrocytic calcium dynamics, map to artificial neural networks, providing a biologically plausible perspective on continuous state memory.
 
-```
+
 ## Overview
 
 This project explores a biologically grounded alternative to standard attention mechanisms. By separating the computational graph into two distinct biological entities, we can model sequence processing in linear time:
@@ -40,7 +40,7 @@ $$y_t = H_t \cdot \phi(q_t)$$
 ### Installation
 Clone the repository and install the required dependencies:
 ```bash
-git clone [https://github.com/YOUR_USERNAME/biologically-plausible-transformer.git](https://github.com/YOUR_USERNAME/biologically-plausible-transformer.git)
+git clone https://github.com/AleczO/biologically-plausible-transformer.git
 cd biologically-plausible-transformer
 pip install torch
 ```
