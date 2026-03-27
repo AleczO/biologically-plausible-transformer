@@ -8,12 +8,14 @@ import seaborn as sns
 
 
 class NANetwork(nn.Module):
-    def __init__(self, d_in_out, m_hidden):
+    def __init__(self, d_in_out, m_hidden, gamma=0.95):
         super().__init__()
         self.d = d_in_out
         self.m = m_hidden
 
         self.W = nn.Parameter(torch.randn(self.m, self.d))
+
+        self.register_buffer('gamma', torch.tensor(gamma))
 
         self.register_buffer('b', torch.empty(self.m).uniform_(0, 2 * torch.pi))
 
@@ -34,7 +36,7 @@ class NANetwork(nn.Module):
             return (1 / p) * (self.H @ h) + x
         
         if r == 0:
-            self.H.add_(torch.outer(x, h) / self.m)
+            self.H.mul_(self.gamma).add_(torch.outer(x, h) / self.m)
             self.g.add_(h)
             return h
 
