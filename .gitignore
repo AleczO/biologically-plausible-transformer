@@ -1,2 +1,2 @@
-resources/
-toy models/
+__pycache__/
+.pytest_cache/
